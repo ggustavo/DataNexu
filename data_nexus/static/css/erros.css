@@ -1,0 +1,40 @@
+.modal-error-queue {
+    top: 80px;
+    position: fixed;
+    align-self: center;
+    width: 600px;
+    z-index: 1000;
+}
+
+.modal-error {
+    background-color: #103165d6;
+    border: 1px solid white;
+    padding: 10px 40px 10px 40px;
+    margin-bottom: 10px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideDown 0.5s;
+    font-size: 20px;
+}
+
+.modal-error-close {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

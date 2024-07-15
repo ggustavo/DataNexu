@@ -1,0 +1,980 @@
+[
+    {
+        "name": "customer",
+        "num_tuples": 1500000,
+        "columns": [
+            {
+                "name": "c_custkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "c_name",
+                "data_type": "varchar(25)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "c_address",
+                "data_type": "varchar(40)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "c_nationkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "c_phone",
+                "data_type": "char(15)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "c_acctbal",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "c_mktsegment",
+                "data_type": "char(10)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "c_comment",
+                "data_type": "varchar(117)",
+                "nullable": false,
+                "default": null
+            }
+        ],
+        "constraints": [
+            {
+                "name": "c_ck",
+                "column_name": "c_custkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "c_custkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "customer_ibfk_1",
+                "column_name": "c_nationkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "nation",
+                "referenced_column_name": "n_nationkey"
+            }
+        ],
+        "indexes": [
+            {
+                "name": "c_ck",
+                "column_name": "c_custkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "c_nk",
+                "column_name": "c_nationkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "c_custkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            }
+        ],
+        "excluded": false,
+        "table_commited": false,
+        "primary_key_commited": false,
+        "constraints_commited": false,
+        "indexes_commited": false,
+        "tuples_commited": false
+    },
+    {
+        "name": "lineitem",
+        "num_tuples": 59986052,
+        "columns": [
+            {
+                "name": "l_orderkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_partkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_suppkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_linenumber",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_quantity",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_extendedprice",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_discount",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_tax",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_returnflag",
+                "data_type": "char(1)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_linestatus",
+                "data_type": "char(1)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_shipdate",
+                "data_type": "date",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_commitdate",
+                "data_type": "date",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_receiptdate",
+                "data_type": "date",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_shipinstruct",
+                "data_type": "char(25)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_shipmode",
+                "data_type": "char(10)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "l_comment",
+                "data_type": "varchar(44)",
+                "nullable": false,
+                "default": null
+            }
+        ],
+        "constraints": [
+            {
+                "name": "PRIMARY",
+                "column_name": "l_orderkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "l_linenumber",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "lineitem_ibfk_1",
+                "column_name": "l_orderkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "orders",
+                "referenced_column_name": "o_orderkey"
+            },
+            {
+                "name": "lineitem_ibfk_2",
+                "column_name": "l_partkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "partsupp",
+                "referenced_column_name": "ps_partkey"
+            },
+            {
+                "name": "lineitem_ibfk_2",
+                "column_name": "l_suppkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "partsupp",
+                "referenced_column_name": "ps_suppkey"
+            }
+        ],
+        "indexes": [
+            {
+                "name": "l_cd",
+                "column_name": "l_commitdate",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_ok",
+                "column_name": "l_orderkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_pk",
+                "column_name": "l_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_pk_sk",
+                "column_name": "l_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_pk_sk",
+                "column_name": "l_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_rd",
+                "column_name": "l_receiptdate",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_sd",
+                "column_name": "l_shipdate",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_sk",
+                "column_name": "l_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_sk_pk",
+                "column_name": "l_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "l_sk_pk",
+                "column_name": "l_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "l_orderkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "l_linenumber",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            }
+        ],
+        "excluded": false,
+        "table_commited": false,
+        "primary_key_commited": false,
+        "constraints_commited": false,
+        "indexes_commited": false,
+        "tuples_commited": false
+    },
+    {
+        "name": "nation",
+        "num_tuples": 25,
+        "columns": [
+            {
+                "name": "n_nationkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "n_name",
+                "data_type": "char(25)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "n_regionkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "n_comment",
+                "data_type": "varchar(152)",
+                "nullable": true,
+                "default": null
+            }
+        ],
+        "constraints": [
+            {
+                "name": "n_nk",
+                "column_name": "n_nationkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "n_nationkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "nation_ibfk_1",
+                "column_name": "n_regionkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "region",
+                "referenced_column_name": "r_regionkey"
+            }
+        ],
+        "indexes": [
+            {
+                "name": "n_nk",
+                "column_name": "n_nationkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "n_rk",
+                "column_name": "n_regionkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "n_nationkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            }
+        ],
+        "excluded": false,
+        "table_commited": false,
+        "primary_key_commited": false,
+        "constraints_commited": false,
+        "indexes_commited": false,
+        "tuples_commited": false
+    },
+    {
+        "name": "orders",
+        "num_tuples": 15000000,
+        "columns": [
+            {
+                "name": "o_orderkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "o_custkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "o_orderstatus",
+                "data_type": "char(1)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "o_totalprice",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "o_orderdate",
+                "data_type": "date",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "o_orderpriority",
+                "data_type": "char(15)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "o_clerk",
+                "data_type": "char(15)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "o_shippriority",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "o_comment",
+                "data_type": "varchar(79)",
+                "nullable": false,
+                "default": null
+            }
+        ],
+        "constraints": [
+            {
+                "name": "o_ok",
+                "column_name": "o_orderkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "orders_ibfk_1",
+                "column_name": "o_custkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "customer",
+                "referenced_column_name": "c_custkey"
+            }
+        ],
+        "indexes": [
+            {
+                "name": "o_ck",
+                "column_name": "o_custkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "o_od",
+                "column_name": "o_orderdate",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "o_ok",
+                "column_name": "o_orderkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            }
+        ],
+        "excluded": false,
+        "table_commited": false,
+        "primary_key_commited": false,
+        "constraints_commited": false,
+        "indexes_commited": false,
+        "tuples_commited": false
+    },
+    {
+        "name": "part",
+        "num_tuples": 2000000,
+        "columns": [
+            {
+                "name": "p_partkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "p_name",
+                "data_type": "varchar(55)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "p_mfgr",
+                "data_type": "char(25)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "p_brand",
+                "data_type": "char(10)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "p_type",
+                "data_type": "varchar(25)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "p_size",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "p_container",
+                "data_type": "char(10)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "p_retailprice",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "p_comment",
+                "data_type": "varchar(23)",
+                "nullable": false,
+                "default": null
+            }
+        ],
+        "constraints": [
+            {
+                "name": "p_pk",
+                "column_name": "p_partkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "p_partkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            }
+        ],
+        "indexes": [
+            {
+                "name": "p_pk",
+                "column_name": "p_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "p_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            }
+        ],
+        "excluded": false,
+        "table_commited": false,
+        "primary_key_commited": false,
+        "constraints_commited": false,
+        "indexes_commited": false,
+        "tuples_commited": false
+    },
+    {
+        "name": "partsupp",
+        "num_tuples": 8000000,
+        "columns": [
+            {
+                "name": "ps_partkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "ps_suppkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "ps_availqty",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "ps_supplycost",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "ps_comment",
+                "data_type": "varchar(199)",
+                "nullable": false,
+                "default": null
+            }
+        ],
+        "constraints": [
+            {
+                "name": "PRIMARY",
+                "column_name": "ps_partkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "ps_suppkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "ps_pk_sk",
+                "column_name": "ps_partkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "ps_pk_sk",
+                "column_name": "ps_suppkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "ps_sk_pk",
+                "column_name": "ps_partkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "ps_sk_pk",
+                "column_name": "ps_suppkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "partsupp_ibfk_1",
+                "column_name": "ps_partkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "part",
+                "referenced_column_name": "p_partkey"
+            },
+            {
+                "name": "partsupp_ibfk_2",
+                "column_name": "ps_suppkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "supplier",
+                "referenced_column_name": "s_suppkey"
+            }
+        ],
+        "indexes": [
+            {
+                "name": "PRIMARY",
+                "column_name": "ps_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "PRIMARY",
+                "column_name": "ps_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "ps_pk",
+                "column_name": "ps_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "ps_pk_sk",
+                "column_name": "ps_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "ps_pk_sk",
+                "column_name": "ps_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "ps_sk",
+                "column_name": "ps_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "ps_sk_pk",
+                "column_name": "ps_partkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "ps_sk_pk",
+                "column_name": "ps_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            }
+        ],
+        "excluded": false,
+        "table_commited": false,
+        "primary_key_commited": false,
+        "constraints_commited": false,
+        "indexes_commited": false,
+        "tuples_commited": false
+    },
+    {
+        "name": "region",
+        "num_tuples": 5,
+        "columns": [
+            {
+                "name": "r_regionkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "r_name",
+                "data_type": "char(25)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "r_comment",
+                "data_type": "varchar(152)",
+                "nullable": true,
+                "default": null
+            }
+        ],
+        "constraints": [
+            {
+                "name": "PRIMARY",
+                "column_name": "r_regionkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "r_rk",
+                "column_name": "r_regionkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            }
+        ],
+        "indexes": [
+            {
+                "name": "PRIMARY",
+                "column_name": "r_regionkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "r_rk",
+                "column_name": "r_regionkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            }
+        ],
+        "excluded": false,
+        "table_commited": false,
+        "primary_key_commited": false,
+        "constraints_commited": false,
+        "indexes_commited": false,
+        "tuples_commited": false
+    },
+    {
+        "name": "supplier",
+        "num_tuples": 100000,
+        "columns": [
+            {
+                "name": "s_suppkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "s_name",
+                "data_type": "char(25)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "s_address",
+                "data_type": "varchar(40)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "s_nationkey",
+                "data_type": "int",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "s_phone",
+                "data_type": "char(15)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "s_acctbal",
+                "data_type": "decimal(15,2)",
+                "nullable": false,
+                "default": null
+            },
+            {
+                "name": "s_comment",
+                "data_type": "varchar(101)",
+                "nullable": false,
+                "default": null
+            }
+        ],
+        "constraints": [
+            {
+                "name": "PRIMARY",
+                "column_name": "s_suppkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "s_sk",
+                "column_name": "s_suppkey",
+                "referenced_table_schema": null,
+                "referenced_table_name": null,
+                "referenced_column_name": null
+            },
+            {
+                "name": "supplier_ibfk_1",
+                "column_name": "s_nationkey",
+                "referenced_table_schema": "benchbase",
+                "referenced_table_name": "nation",
+                "referenced_column_name": "n_nationkey"
+            }
+        ],
+        "indexes": [
+            {
+                "name": "PRIMARY",
+                "column_name": "s_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            },
+            {
+                "name": "s_nk",
+                "column_name": "s_nationkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 1,
+                "excluded": false
+            },
+            {
+                "name": "s_sk",
+                "column_name": "s_suppkey",
+                "nullable": false,
+                "index_type": "BTREE",
+                "non_unique": 0,
+                "excluded": false
+            }
+        ],
+        "excluded": false,
+        "table_commited": false,
+        "primary_key_commited": false,
+        "constraints_commited": false,
+        "indexes_commited": false,
+        "tuples_commited": false
+    }
+]

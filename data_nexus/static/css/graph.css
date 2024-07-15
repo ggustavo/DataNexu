@@ -1,0 +1,19 @@
+  .link {
+    stroke: #00000090;
+    stroke-width: 1px;
+  }
+  
+  .node {
+    cursor: move;
+    stroke: #000;
+    stroke-width: 0.5px;
+  }
+  
+  .node.fixed {
+    stroke: #ff0000;
+    stroke-width: 2px;
+  }
+  
+  .horizontal_div {
+    display: flex;
+  }

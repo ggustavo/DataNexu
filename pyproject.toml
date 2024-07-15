@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "primal-base"
+version = "0.1.0"
+description = ""
+authors = ["ggustavo <gustavomoraes94@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mysql-connector-python = "^8.3.0"
+psycopg2 = "^2.9.9"
+load-dotenv = "^0.1.0"
+flask = "^2.1.0"
+networkx = "^3.3"
+python-louvain = "^0.16"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

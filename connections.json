@@ -1,0 +1,26 @@
+[
+    {
+        "id": "Example_TPCH",
+        "type": "MySQLConnection",
+        "credentials": {
+            "database": "TPCH",
+            "user": "root",
+            "password": "root",
+            "host": "localhost",
+            "port": "3306",
+            "schema": null
+        }
+    },
+    {
+        "id": "Example_AdventureWorks",
+        "type": "PostgreSQLConnection",
+        "credentials": {
+            "database": "adventureworks",
+            "user": "postgres",
+            "password": "postgres",
+            "host": "localhost",
+            "port": "5432",
+            "schema": "adw"
+        }
+    }
+]

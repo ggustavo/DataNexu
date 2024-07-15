@@ -1,0 +1,206 @@
+.menu {
+    width: 20%;
+    height: 100vh;
+    background-color: #f0f0f0;
+    color: #003595;
+    position: absolute;
+    top: 0;
+    left: -20%; /* Off-screen to the left */
+    transition: left 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; /* Menu below the button */
+    /*border: 1px solid white; */
+  }
+  
+  /*.background {
+    width: 100%;
+    height: calc(100% - 50px);
+    position: relative;
+  }*/
+  
+  .menu.open {
+    left: -10px;
+  }
+  
+  /* Menu */
+  
+  .menu_content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupa toda a altura da tela */
+   /* border: 2px solid red; /* Apenas para visualização */
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    border: 1px solid white;
+  }
+  
+  #new_connection_button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    background: #003595;
+    border: none;
+    color: white;
+    font-size: 20px;
+    align-self: center;
+    width: 60%;
+    height: 5%;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  #new_connection_button:hover {
+    background: #103065;
+  }
+
+  #analyze_database {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    background: #003595;
+    border: none;
+    color: white;
+    font-size: 20px;
+    align-self: center;
+    width: 60%;
+    height: 5%;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  #analyze_database:hover {
+    background: #103065;
+  }
+  
+  .menu_sub_content {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ocupa todo o espaço restante */
+    /*border: 2px solid white; /* Apenas para visualização */
+    overflow: hidden; /* Garante que o conteúdo não saia do contêiner */
+  }
+  
+  #connections_container {
+    flex: 1;
+    /*border: 2px solid orange;
+    overflow-y: auto; /* Adiciona scroll vertical */
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    margin-left: 15px;
+    margin-right: 5px;
+  }
+  
+  .connection_item {
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Linha divisória entre os itens */
+    border-top: 1px solid #ccc;
+  }
+
+  .connection_item.active {
+    border: 4px solid #003595;
+  }
+  
+
+  .edit_icon {
+    width: 20px; /* Largura desejada para o ícone */
+    height: auto; /* Altura automática para manter a proporção */
+    margin-left: 10px; /* Espaçamento à esquerda do ícone (ajuste conforme necessário) */
+    cursor: pointer; /* Mudança de cursor ao passar por cima */
+    float: right; /* Flutuar o ícone para a direita */
+  }
+
+
+  .connection_icon {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  .connection_text {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ocupa toda a largura disponível */
+  }
+  
+  .connection_text span:first-child {
+    color: #003595; /* Primeiro texto em azul */
+  }
+  
+  .connection_text span:last-child {
+    color: #103065; /* Segundo texto em verde */
+  }
+
+  .grid_graphs {
+    height: 90px; /* Altura de exemplo, ajustável conforme necessário */
+    /*border: 2px solid green; /* Apenas para visualização */
+    display: flex;
+    justify-content: space-around; /* Distribui os ícones horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha se necessário */
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .grid_label {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+    color: #003595;
+  }
+ 
+  
+  .grid_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    margin: 2px; /* Espaçamento entre os itens */
+    flex: 1 1 60px; /* Base flexível de 100px, crescer conforme necessário */
+  }
+
+
+
+  .grid_icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 2px; /* Espaçamento entre o ícone e o texto */
+    /* border: 4px solid;*/
+   /* border-radius: 10px; */
+  }
+
+  .grid_icon.active {
+    border: 3px solid #003595;
+  }
+  
+  .grid_text {
+    text-align: center;
+  }
+  
+  /* Media query para ajustar o layout em telas menores */
+  @media (max-width: 600px) {
+    .grid_graphs {
+        justify-content: center; /* Centraliza os itens em telas menores */
+    }
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+  }
+
+  /* Inicialmente, os elementos estão ocultos */
+  .hidden {
+      opacity: 0;
+  }

@@ -1,0 +1,73 @@
+
+#prop_menu_open_button {
+  position: absolute;
+  width: 15px;
+  height: 200px;
+  top: calc(50% - 100px);
+  left: -7px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.prop_menu_open_icon {
+  width: calc(100% - 5px);
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+
+.prop_menu_body {
+  position: absolute;
+  width: 30%;
+  left: 99.4%;
+  top: 65px;
+  font-family: Arial, sans-serif;
+  transition: left 0.3s;
+}
+
+.prop_menu_body.open {
+  left: 67.8%;
+}
+
+.prop_menu_container {
+  width: 100%;
+  max-width: 1000px;
+  height: 755px; /* Defina a altura que você deseja */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+}
+.prop_menu_section-title {
+  font-size: 20px;
+  color: #003595;
+  margin-bottom: 10px;
+}
+.prop_menu_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  table-layout: fixed;
+}
+.prop_menu_th, .prop_menu_td {
+  font-size: 12px;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
+}
+.prop_menu_th {
+  background-color: #003595;
+  color: white;
+}

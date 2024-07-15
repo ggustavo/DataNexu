@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataNexus</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/erros.css">
+    <link rel="stylesheet" href="/static/css/graph.css">
+    <link rel="stylesheet" href="/static/css/menu.css">
+    <link rel="stylesheet" href="/static/css/modal.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/properties_menu.css">
+    
+</head>
+<body>
+
+    <div id="errorQueue" class="modal-error-queue"></div>
+    <!--<div class="navbar"> --> 
+    <!--    <button id="menu_button">☰</button> --> 
+    <!-- </div> --> 
+                
+    <div class="navbar">
+        <button id="menu_button">☰</button>
+
+        <div id = "search-container" class="search-container">
+            <input type="text" placeholder="Search...">
+            <button type="submit" class="search-button"><img src="/static/icons/search.png" alt="Search"></button>
+          </div>
+
+        <div id="tabs" class="tabs">    
+        </div>
+    </div>
+
+
+
+    <div id="prop_menu_body" class="prop_menu_body">
+
+        <div id="prop_menu_open_button">
+            <img class="prop_menu_open_icon" src="/static/icons/arrow.png">
+        </div>  
+
+        <div class="prop_menu_container">
+            <div id="table-info">
+                <h2 class="prop_menu_section-title">Table: <span id="table-name"></span></h2>
+                <p><strong>Number of Tuples:</strong> <span id="num-tuples"></span></p>
+            </div>
+            <div id="columns-info">
+                <h2 class="prop_menu_section-title">Columns</h2>
+                <table class="prop_menu_table" id="columns-table">
+                    <thead>
+                        <tr>
+                            <th class="prop_menu_th">Name</th>
+                            <th class="prop_menu_th">Data Type</th>
+                            <th class="prop_menu_th">Nullable</th>
+                            <th class="prop_menu_th">Default</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="constraints-info">
+                <h2 class="prop_menu_section-title">Constraints</h2>
+                <table class="prop_menu_table" id="constraints-table">
+                    <thead>
+                        <tr>
+                            <th class="prop_menu_th">Name</th>
+                            <th class="prop_menu_th">Column</th>
+                            <th class="prop_menu_th">Referenced Table Schema</th>
+                            <th class="prop_menu_th">Referenced Table Name</th>
+                            <th class="prop_menu_th">Referenced Column Name</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="indexes-info">
+                <h2 class="prop_menu_section-title">Indexes</h2>
+                <table class="prop_menu_table" id="indexes-table">
+                    <thead>
+                        <tr>
+                            <th class="prop_menu_th">Name</th>
+                            <th class="prop_menu_th">Column Name</th>
+                            <th class="prop_menu_th">Nullable</th>
+                            <th class="prop_menu_th">Index Type</th>
+                            <th class="prop_menu_th">Non-Unique</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="menu" id="menu">
+        
+        <div class="menu_content">
+
+            <button id="new_connection_button">New Connection</button>
+
+            <div class="menu_sub_content">
+                <div id="connections_container"></div>
+               
+                <label class="grid_label" >Choose a Node Size</label>
+                
+                <div class="grid_graphs">
+
+                    <div id="graph_relationships" class="grid_item">
+                        <img class="grid_icon" src="/static/icons/g_relationships.png"></img>
+                        <div class="grid_text">Relationships</div>
+                    </div>
+
+                    <div id="graph_tuples" class="grid_item">
+                        <img class="grid_icon" src="/static/icons/g_tuples.png"></img>
+                        <div class="grid_text">Tuples</div>
+                    </div>
+                    
+                    <div id="graph_indexes" class="grid_item">
+                        <img class="grid_icon" src="/static/icons/g_indexes.png"></img>
+                        <div class="grid_text">Indexes</div>
+                    </div>
+   
+                </div>
+
+                <label id="label_type_relat" class="grid_label" >Choose the type of Relationship</label>
+
+                <div id="div_type_relat" class="grid_graphs"> 
+
+                    <div id="graph_both" class="grid_item">
+                        <img class="grid_icon" src="/static/icons/g_both.png"></img>
+                        <div class="grid_text">Influence/Prestige</div>
+                    </div>
+
+                    <div id="graph_prestige" class="grid_item">
+                        <img class="grid_icon" src="/static/icons/g_prestige.png"></img>
+                        <div class="grid_text">Prestige<br>(indegree)</div>
+                    </div>
+                    
+                    <div id="graph_influence" class="grid_item">
+                        <img class="grid_icon" src="/static/icons/g_influence.png"></img>
+                        <div class="grid_text">Influence<br>(outdegree)</div>
+                    </div>         
+             
+                </div>
+
+                
+                <label class="grid_label" >Choose a Visualization</label>
+
+                <div class="grid_graphs">
+
+                    <div id="graph_grouped" class="grid_item">
+                        <img class="grid_icon" src="/static/icons/g_grouped.png"></img>
+                        <div class="grid_text">Concentrated<br>Community Graph</div>
+                    </div>
+                    
+                    <div id="graph_free" class="grid_item">
+                        <img class="grid_icon" src="/static/icons/g_free.png"></img>
+                        <div class="grid_text">Spread<br>Community Graph</div>
+                    </div>
+             
+                </div>
+
+                
+            </div>
+            
+            <button id="analyze_database">Analyze Database</button>
+        </div>
+
+    </div>
+
+    <div class="background">
+         <!-- <div id="graph"></div> --> 
+    </div>
+
+
+    <div class="modal_overlay" id="modal_overlay_connection">
+        <div class="modal">
+
+            <button class="close_button" id="close_modal_button">&times;</button>
+          
+            <div class="modal_horizontal_div">
+                <img class="logo_modal" id="database_logo" src="/static/icons/postgresql_logo.png"><br>
+
+                <div class="modal_cred_div">
+                    <select id="dbms" name="dbms" class="select_modal" onchange="changeDBMS()">
+                        <option value="postgresql">PostgreSQL</option>
+                        <option value="mysql">MySQL</option>
+                        <option value="sqlserver (under development)">SQLServer</option>
+                      </select><br>
+                    
+                    <div id ="modal_content_postgres_host_port">
+                        <label class="label_modal">Host:</label>
+                        <input type="text" id="postgresql_host" name="Host" value="localhost" class="input_modal"><br>
+                    
+                        <label class="label_modal">Port:</label>
+                        <input type="text" id="postgresql_port" name="Port" value="5432" class="input_modal"><br>
+                    </div>
+
+                    <div id ="modal_content_mysql_host_port" style="display: none;">
+                        <label class="label_modal">Host:</label>
+                        <input type="text" id="mysql_host" name="Host" value="localhost" class="input_modal"><br>
+                    
+                        <label class="label_modal">Port:</label>
+                        <input type="text" id="mysql_port" name="Port" value="3306" class="input_modal"><br>
+                    </div>
+
+                    <div id ="modal_content_sqlserver_host_port" style="display: none;">
+                        <label class="label_modal">Host:</label>
+                        <input type="text" id="sqlserver_host" name="Host" value="localhost" class="input_modal"><br>
+                    
+                        <label class="label_modal">Port:</label>
+                        <input type="text" id="sqlserver_port" name="Port" value="1433" class="input_modal"><br>
+                    </div>
+                  
+                </div>
+                
+            </div>
+            
+            <div id="modal_content_postgres" class="content_modal">
+
+                <label class="label_modal">Database:</label>
+                <input type="text" id="postgresql_database" name="Database" value="" class="input_modal"><br>
+            
+                <label class="label_modal">Schema:</label>
+                <input type="text" id="postgresql_schema" name="Schema" value="" class="input_modal"><br>
+            
+                <label class="label_modal">User:</label>
+                <input type="text" id="postgresql_user" name="User" value="" class="input_modal"><br>
+            
+                <label class="label_modal">Password:</label>
+                <input type="password" id="postgresql_password" name="Password" value="" class="input_modal"><br>
+            </div>
+          
+            <div id="modal_content_mysql" class="content_modal" style="display: none;">
+            
+                <label class="label_modal">Database:</label>
+                <input type="text" id="mysql_database" name="Database" value="" class="input_modal"><br>
+            
+                <label class="label_modal">User:</label>
+                <input type="text" id="mysql_user" name="User" value="" class="input_modal"><br>
+            
+                <label class="label_modal">Password:</label>
+                <input type="password" id="mysql_password" name="Password" value="" class="input_modal"><br>
+                
+            </div>
+          
+            <div id="modal_content_sqlserver" class="content_modal" style="display: none;">
+
+                <label class="label_modal">Database:</label>
+                <input type="text" id="sqlserver_database" name="Database" value="" class="input_modal"><br>
+            
+                <label class="label_modal">User:</label>
+                <input type="text" id="sqlserver_user" name="User" value="" class="input_modal"><br>
+            
+                <label class="label_modal">Password:</label>
+                <input type="password" id="sqlserver_password" name="Password" value="" class="input_modal"><br>
+                
+            </div>
+          
+            <button id="start_database_connection" class="button_modal" >Create</button>
+          </div>
+  
+    
+
+    </div>
+
+    <!-- D3 -->
+    <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+    <script src="/static/js/d3.v7.js"></script> 
+    <script src="/static/js/validations.js"></script> 
+    <script src="/static/js/models.js"></script> 
+    <script src="/static/js/debug.js"></script> 
+    <script src="/static/js/data.js"></script> 
+    <script src="/static/js/graph_free.js"></script>
+    <script src="/static/js/graph_community.js"></script>
+    <script src="/static/js/graph.js"></script> 
+    <script src="/static/js/events.js"></script> 
+</body>
+</html>
